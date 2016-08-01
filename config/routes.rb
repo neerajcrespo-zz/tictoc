@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :homes
+  get 'handle_move' => 'application#handle_move'
+  root "homes#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
