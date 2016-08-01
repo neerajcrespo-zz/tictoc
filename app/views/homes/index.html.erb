@@ -1,25 +1,33 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
 
-<h1>Listing Homes</h1>
+<head>
+ <title>Tictoc</title>
+ 
+   <div style="text-align: center; style=border:1px solid #FFFFFF;">
+     <div id="rowone" style="center;">
+       <canvas id="myCanvasa" width="160" height="160" style="border:1px solid #FFFFFF;"></canvas>
+       <canvas id="myCanvasb" width="160" height="160" style="border:1px solid #FFFFFF;"></canvas>
+       <canvas id="myCanvasc" width="160" height="160" style="border:1px solid #FFFFFF;"></canvas>
+     </div>
+     <div id="rowtwo" style="center;">
+       <canvas id="myCanvasd" width="160" height="160" style="border:1px solid #FFFFFF;"></canvas>
+       <canvas id="myCanvase" width="160" height="160" style="border:1px solid #FFFFFF;"></canvas>
+       <canvas id="myCanvasf" width="160" height="160" style="border:1px solid #FFFFFF;"></canvas>
+     </div>  
+     <div id="rowthree" style="center;">
+       <canvas id="myCanvasg" width="160" height="160" style="border:1px solid #FFFFFF;"></canvas>
+       <canvas id="myCanvash" width="160" height="160" style="border:1px solid #FFFFFF;"></canvas>
+       <canvas id="myCanvasi" width="160" height="160" style="border:1px solid #FFFFFF;"></canvas>
+     </div>
+     <button type="button" onclick="alert('Hello world!')">Click Me!</button>
+   </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+</head>
 
-  <tbody>
-    <% @homes.each do |home| %>
-      <tr>
-        <td><%= link_to 'Show', home %></td>
-        <td><%= link_to 'Edit', edit_home_path(home) %></td>
-        <td><%= link_to 'Destroy', home, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<body>
 
-<br>
+<%= yield %>
 
-<%= link_to 'New Home', new_home_path %>
+</body>
+</html>
