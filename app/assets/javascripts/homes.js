@@ -1,26 +1,32 @@
+var current = 0
+var size = 3
+var squaresize = 8
+var alreadydrawn = []
+
 window.onload = function() {
- drawCircle("myCanvasa", "blue")
-//  var c   = document.getElementById("myCanvasa");
- // var ctx = c.getContext("2d");
- // ctx.beginPath();
- // ctx.arc(80, 80, 50, 0, 2 * Math.PI);
- // ctx.stroke();
- // ctx.fillStyle = "blue";
- // ctx.fill();
 };
 
 function drawCircle(divid, color) {
- var c   = document.getElementById(divid);
- var ctx = c.getContext("2d");
- ctx.beginPath();
- ctx.arc(80, 80, 50, 0, 2 * Math.PI);
- ctx.stroke();
- ctx.fillStyle = color;
- ctx.fill();
+  var c   = document.getElementById(divid);
+  var ctx = c.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(80, 80, 50, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.fillStyle = color;
+  ctx.fill();
 }
 
 $(function() {
-   $("body").click(function(e) {
-       drawCircle(e.target.id, "blue")
-   });
-}) 
+    $("body").click(function(e) {
+        if (alreadydrawn.includes(e.target.id))
+          return;
+        if (current%2 == 0) {
+          drawCircle(e.target.id, "blue")
+        }
+        else {
+          drawCircle(e.target.id, "red")
+        }
+        alreadydrawn.push(e.target.id)
+        current = current + 1
+    });
+})
